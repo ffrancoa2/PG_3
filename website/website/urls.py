@@ -19,9 +19,15 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("<h1>¡Django con Docker funcionando correctamente! 🎉</h1>")
+
 
 
 urlpatterns = [
+    path("", home),
     path("admin/", admin.site.urls),
     path("polls/", include("polls.urls")),
 ]
